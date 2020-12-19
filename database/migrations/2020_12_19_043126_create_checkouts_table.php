@@ -31,15 +31,6 @@ class CreateCheckoutsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('checkout_order', function (Blueprint $table) {
-            $table->foreignId('checkout_id')->constrained('checkouts')->cascadeOnDelete();
-            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
-
-            $table->primary(['checkout_id', 'order_id']);
-
-            $table->timestamps();
-        });
-
         Schema::table('orders', function(Blueprint $table) {
             $table->foreignId('checkout_id')->nullable()->constrained('checkouts')->cascadeOnDelete();
         });

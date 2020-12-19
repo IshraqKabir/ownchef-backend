@@ -3,20 +3,10 @@
 use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\ItemCategoryController;
 use App\Http\Controllers\API\ItemController;
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -48,3 +38,10 @@ Route::post('item/create', [ItemController::class, 'create']);
 Route::get('item/{item}/read', [ItemController::class, 'read']);
 Route::post('item/{item}/update', [ItemController::class, 'update']);
 Route::delete('item/{item}/delete', [ItemController::class, 'delete']);
+
+// order
+Route::get('order/all', [OrderController::class, 'index']);
+Route::post('order/create', [OrderController::class, 'create']);
+Route::get('order/{order}/read', [OrderController::class, 'read']);
+Route::post('order/{order}/update', [OrderController::class, 'update']);
+Route::delete('order/{order}/delete', [OrderController::class, 'delete']);

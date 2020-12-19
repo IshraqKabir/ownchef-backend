@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    public static function orders()
+    {
+        return Order::where('id', '!=', '0')->recent()->get();
+    }
+
     public function items()
     {
         return $this->belongsToMany(Item::class);
