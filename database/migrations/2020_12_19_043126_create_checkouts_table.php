@@ -19,8 +19,6 @@ class CreateCheckoutsTable extends Migration
             $table->float('discount')->nullable();
             $table->integer('total_bill');
             $table->float('delivery_charge');
-            $table->boolean('is_verified')->default(false);
-            $table->string('verification_code')->nullable();
             $table->string('pay_type');
             $table->boolean('is_received')->default(false);
             $table->boolean('is_preparing')->default(false);

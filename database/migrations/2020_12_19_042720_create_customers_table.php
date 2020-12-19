@@ -18,6 +18,8 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->string('mobile_number')->unique();
             $table->string('address');
+            $table->boolean('is_verified')->default(false);
+            $table->string('verification_code')->nullable();
             $table->timestamps();
         });
     }

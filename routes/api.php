@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\CheckoutController;
+use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\ItemCategoryController;
 use App\Http\Controllers\API\ItemController;
@@ -45,3 +47,18 @@ Route::post('order/create', [OrderController::class, 'create']);
 Route::get('order/{order}/read', [OrderController::class, 'read']);
 Route::post('order/{order}/update', [OrderController::class, 'update']);
 Route::delete('order/{order}/delete', [OrderController::class, 'delete']);
+
+// customer
+Route::get('customer/all', [CustomerController::class, 'index']);
+Route::post('customer/create', [CustomerController::class, 'create']);
+Route::get('customer/{customer}/read', [CustomerController::class, 'read']);
+Route::post('customer/{customer}/update', [CustomerController::class, 'update']);
+Route::delete('customer/{customer}/delete', [CustomerController::class, 'delete']);
+
+// checkout
+Route::get('checkout/all', [CheckoutController::class, 'index']);
+Route::post('checkout/create', [CheckoutController::class, 'create']);
+Route::get('checkout/{checkout}/read', [CheckoutController::class, 'read']);
+Route::post('checkout/{checkout}/update', [CheckoutController::class, 'update']);
+Route::delete('checkout/{checkout}/delete', [CheckoutController::class, 'delete']);
+Route::post('checkout/{checkout}/verify', [CheckoutController::class, 'verify']);
